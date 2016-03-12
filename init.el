@@ -158,6 +158,14 @@
   (let ((comint-buffer-maximum-size (if x x 4)))
     (comint-truncate-buffer)))
 
+;; alignment
+(defun align-repeat (start end regexp)
+  "Repeat alignment with respect to 
+     the given regular expression."
+  (interactive "r\nsAlign regexp: ")
+  (align-regexp start end 
+                (concat "\\(\\s-+\\)" regexp) 1 1 t))
+
 ;; ibuffer format
 (setq ibuffer-formats '((mark modified read-only " "
                               (name 26 26 :left :elide)
